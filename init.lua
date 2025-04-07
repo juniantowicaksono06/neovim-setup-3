@@ -27,6 +27,12 @@ map("n", "<C-g>log", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<C-g>st", "<cmd>Telescope git_status<CR>", opts)
 map("n", "<C-g>sh", "<cmd>Telescope git_stash<CR>", opts)
 
+-- Telescope search function or variable
+map("n", "<leader>t", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+
+-- Telescope list all buffers
+map("n", "<leader>r", "<cmd>Telescope buffers<CR>", opts)
+
 -- Split
 map("n", "<leader>h", "<cmd>horizontal split<CR>", opts)
 map("n", "<leader>v", "<cmd>vertical split<CR>", opts)
@@ -67,3 +73,15 @@ vim.keymap.set("n", "<F3>", function()
   vim.opt.wrap = not vim.opt.wrap:get()
   print("Word Wrap: " .. (vim.opt.wrap:get() and "ON" or "OFF"))
 end, { desc = "Toggle Word Wrap" })
+
+-- Disable auto formatter
+vim.g.autoformat = false
+
+-- Require a Prettier config file for the formatter to be used
+-- vim.g.lazyvim_prettier_needs_config = true
+
+-- Make neovim transparent
+vim.opt.termguicolors = true
+vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+vim.cmd [[ hi NormalNC guibg=NONE ctermbg=NONE ]]
+
